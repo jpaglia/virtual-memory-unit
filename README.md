@@ -3,22 +3,18 @@
 This project consists of writing a program that translates logical to physical addresses for a virtual address space of size 2<sup>16</sup> = 65,536 bytes. Your program will read from a file containing logical addresses and, using a TLB and a page table, will translate each logical address to its corresponding physical address and output the value of the byte stored at the translated physical address. Your learning goal is to use simulation to understand the steps involved in translating logical to physical addresses. This will include resolving page faults using demand paging, managing a TLB, and implementing a page-replacement algorithm.
 
 ## Instructions for executing the MMU:
-1) Enter the "StartKit" directory.
+1) Navigate to the project's working directory.
 2) Execute the "test.sh" script. This can be done by simply running `./test.sh`
-3) An output.csv file will be generated with the columns specified
-   in the "README_ProjReqs.md", as provided by the professor.
-4) The statistics outlined in the same readme file will be printed
-   to stdout.
+3) An output.csv file will be generated with the columns specified in the sections below.
+4) The statistics outlined in the same readme file will be printed to stdout.
 
 ## To Specify Page Replacement:
 1) Open the C source file "mmu.c" in vim or a simple text editor.
-2) Modify the definition of "PHYS_MEM_SIZE" according to the
-   instructions in the code comments for the grader.
+2) Modify the definition of "PHYS_MEM_SIZE" according to the instructions in the code comments for the grader.
    > a) Set to 256 for NO page replacement <br>
    > b) Set to 128 for pagee replacement
 3) Save the source file and exit.
-4) Run the `test.sh` script to compile and execute the updated
-   code, as outlined in the instructions above.
+4) Run the `test.sh` script to compile and execute the updated code, as outlined in the instructions above.
 
 ### Details
 This program reads a file containing several 32-bit integer numbers that represent logical addresses. However, we are only concerned with the 16-bit addresses, so the rightmost 16 bits of each logical address are masked. These 16 bits are divided into (1) an 8-bit page number and (2) an 8-bit page offset. Hence, the addresses are structured as shown as:
